@@ -1,0 +1,9 @@
+Open
+Common
+Uncommon
+Rare
+Legendary
+Mythical
+Blessed
+Cursed
+Sacred

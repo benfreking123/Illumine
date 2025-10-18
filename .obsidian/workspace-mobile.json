@@ -1,0 +1,703 @@
+{
+  "main": {
+    "id": "8bada51f7847d6f1",
+    "type": "split",
+    "children": [
+      {
+        "id": "921860a30aa9327e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7ae100519adb727a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Aspects/Objects/Baseplates/Baseplate.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Baseplate"
+            }
+          },
+          {
+            "id": "369fa1577e1d1fbf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Focuses/Focus.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Focus"
+            }
+          },
+          {
+            "id": "b1f3d287dad29104",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Aspects/Entities/Primordials/Primordials.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Primordials"
+            }
+          },
+          {
+            "id": "52b6be7a5fe427f2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Aspects/Lucid Blueprint.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Lucid Blueprint"
+            }
+          },
+          {
+            "id": "ea3b3773ca8f8329",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Affordances/Divination/Future Link.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Future Link"
+            }
+          },
+          {
+            "id": "308f0164bcfbcfae",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "8f1675beb39d2ada",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          },
+          {
+            "id": "0d52b6c9f5b25735",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          },
+          {
+            "id": "7d3dd3aef0afe5d3",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          },
+          {
+            "id": "ae0db4e95c737229",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "-Misc/Templates/School.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "School"
+            }
+          },
+          {
+            "id": "9871541440bbbec4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "-Misc/Templates/School.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "School"
+            }
+          },
+          {
+            "id": "b188b32d1213851d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Affordances/School.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "School"
+            }
+          },
+          {
+            "id": "9859c2e9d3d5c39d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Affordances/School.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "School"
+            }
+          },
+          {
+            "id": "4e566640d2c6e5d9",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          },
+          {
+            "id": "4f8c2e821e6ba3cd",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          },
+          {
+            "id": "559982e3ad31c48c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Affordances/Conjuration/Manifestation.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Manifestation"
+            }
+          },
+          {
+            "id": "250d8cad7d50a041",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          },
+          {
+            "id": "29d3dd2c7ad5d64c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Aspects/Objects/Talisman/Mana Stone.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Mana Stone"
+            }
+          },
+          {
+            "id": "4c442994f60f206e",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          },
+          {
+            "id": "1789d0a69f395e24",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          },
+          {
+            "id": "5860396d224f2d5b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Pages/Ideologies.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Ideologies"
+            }
+          },
+          {
+            "id": "c3a77e2f56892e32",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Pages/Ideologies.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Ideologies"
+            }
+          },
+          {
+            "id": "eecff0270ffce3bd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Focuses/The Void.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "The Void"
+            }
+          },
+          {
+            "id": "6bc23a097e79e533",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Practice/Pathway.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Pathway"
+            }
+          },
+          {
+            "id": "5a53053702d77114",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Aspects/Constructs/Servitor/Tyler Durden.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Tyler Durden"
+            }
+          },
+          {
+            "id": "74e4fa5dfc49700c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Affordances/Divination/Tarot.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Tarot"
+            }
+          },
+          {
+            "id": "428c8a97123f9d13",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Focuses/Lucid Focuses/Mind Palace.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Mind Palace"
+            }
+          },
+          {
+            "id": "77d134fa9036572f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "-Misc/Templates/Appearance.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Appearance"
+            }
+          },
+          {
+            "id": "b3c90322627bc2e9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Unorganized/Lucid Dreaming.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Lucid Dreaming"
+            }
+          },
+          {
+            "id": "bc228cd1ab7508fe",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Focuses/The Void.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "The Void"
+            }
+          },
+          {
+            "id": "ece1858304ad5c47",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "-Misc/Templates/Start.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Start"
+            }
+          },
+          {
+            "id": "663c492dca6cb672",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Aspects/Entities/Embodiments/Embodiment.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Embodiment"
+            }
+          }
+        ],
+        "currentTab": 31
+      },
+      {
+        "id": "ddb7668da71a47b1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b4a58b667f3c74e6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Aspects/Objects/Icon/Icon.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Icon"
+            }
+          },
+          {
+            "id": "f1ac442c5e4b8370",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Aspects/Objects/Talisman/Mana Stone.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Mana Stone"
+            }
+          },
+          {
+            "id": "0d6e628fbb72c58c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Focuses/Lucid Focuses/Mind Palace.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Mind Palace"
+            }
+          },
+          {
+            "id": "b3583059bf8120d1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Affordances/Presence of God.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Presence of God"
+            }
+          },
+          {
+            "id": "f7bc1fb9b504b4bc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Aspects/Objects/Lucid Blueprint.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Lucid Blueprint"
+            }
+          },
+          {
+            "id": "00a4871b5711feb2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Aspects/Astral Aspect.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Astral Aspect"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "be01df1e1831da78",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "9e0607e243157264",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical",
+            "autoReveal": true
+          },
+          "icon": "lucide-folder-closed",
+          "title": "Files"
+        }
+      },
+      {
+        "id": "2e62145a2274c87d",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": true,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-search",
+          "title": "Search"
+        }
+      },
+      {
+        "id": "3cf0c3f7814c2bc9",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          },
+          "icon": "lucide-tags",
+          "title": "Tags"
+        }
+      },
+      {
+        "id": "5fad5b8c1e359bae",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {},
+          "icon": "lucide-bookmark",
+          "title": "Bookmarks"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "fb8d1b7ea1c05655",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "36a952e5af884701",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "Pages/Essasys/Three New Essasy.md",
+            "collapseAll": true,
+            "extraContext": true,
+            "sortOrder": "alphabetical",
+            "showSearch": true,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-coming-in",
+          "title": "Backlinks"
+        }
+      },
+      {
+        "id": "c6db34ca8f7885c7",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "Affordances/Projection/Meditation.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-going-out",
+          "title": "Outgoing links"
+        }
+      },
+      {
+        "id": "fa9c2dfec50f921c",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "Affordances/Projection/Meditation.md"
+          },
+          "icon": "lucide-list",
+          "title": "Outline"
+        }
+      },
+      {
+        "id": "dbc6dc7ee4eabfda",
+        "type": "leaf",
+        "state": {
+          "type": "calendar",
+          "state": {},
+          "icon": "calendar-with-checkmark",
+          "title": "Calendar"
+        }
+      }
+    ],
+    "currentTab": 3
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "663c492dca6cb672",
+  "lastOpenFiles": [
+    "Unorganized/Kenith & Zarda.md",
+    "Practice/Ideas.md",
+    "Unorganized/Energy.md",
+    "Practice/Daily Notes/2025-10-18.md",
+    "Pages/Essasys/Three New Essasy.md",
+    "Practice/Lesson Plan.md",
+    "Practice/Daily Notes/2025-10-17.md",
+    "Practice/Pathway.md",
+    "Affordances/Manipulation/Manipulation.md",
+    "Affordances/Manipulation/Domain.md",
+    "Aspects/Objects/Talisman/Mana Stone.md",
+    "Practice/Daily Notes/Daily Note Template.md",
+    "Aspects/Objects/Altars/Mecca Cube.md",
+    "Unorganized/Solar Body.md",
+    "Unorganized/Memory.md",
+    "Unorganized/Lucid Dreaming.md",
+    "Pages/Essasys/What is a Focus.md",
+    "Pages/Essasys/What is a Affordance.md",
+    "Pages/Essasys/The Framework.md",
+    "Aspects/Objects/Identification Tools/Boxed Void.md",
+    "Aspects/Objects/Scrying Mirror/Scrying Mirror.md",
+    "Aspects/Objects/Identification Tools",
+    "Aspects/Objects/Scrying Mirror/God Mirror.md",
+    "Aspects/Objects/Scrying Mirror",
+    "Aspects/Objects/Scrying Mirror/Garfield Mirror.md",
+    "Aspects/Objects/Identification Tools/Baseplates/Baseplate.md",
+    "Aspects/Objects/Divination Tools",
+    "Personality.md",
+    "Aspects/Observer.md",
+    "Untitled",
+    "Unorganized",
+    "Practice/Daily Notes",
+    "Practice",
+    "Pages/Essasys",
+    "Pages/Journals",
+    "Aspects/Objects/Anchor"
+  ]
+}
