@@ -2,7 +2,7 @@ name: Build & Deploy Quartz (copy root -> /content)
 
 on:
   push:
-    branches: [ main ]      # or [ v4 ] if you prefer
+    branches: [ main ]        # or [ v4 ] if you prefer
 
 permissions:
   contents: read
@@ -29,7 +29,7 @@ jobs:
       - name: Enable corepack (pnpm)
         run: corepack enable
 
-      # --- Copy your root vault into /content for Quartz ---
+      # 1) Copy your ROOT vault into /content on the runner
       - name: Prepare /content from repo root
         run: |
           mkdir -p content
@@ -47,21 +47,24 @@ jobs:
             --exclude='content/**' \
             --exclude='README.md' \
             ./ ./content/
-
       - name: Show a few files in /content (debug)
-        run: find content -maxdepth 2 -type f | head -n 30
+        run: |
+          echo "Top of /content:"
+          find content -maxdepth 2 -type f | head -n 30
 
-      # --- Fetch Quartz (monorepo) and install with pnpm ---
+      # 2) Clone Quartz and install deps (pnpm workspace)
       - name: Clone Quartz
         run: git clone --depth=1 https://github.com/jackyzha0/quartz.git quartz
 
       - name: Install Quartz dependencies (pnpm workspace)
         run: pnpm install --no-frozen-lockfile --dir quartz
 
-      # The CLI is exposed via pnpm; run it from the Quartz workspace
+      # 3) Build via Quartz CLI entrypoint (bin -> ./quartz/bootstrap-cli.mjs)
+      #    We call it directly instead of npx so we don't depend on a package name.
       - name: Build site with Quartz CLI
-        run: pnpm --dir quartz exec quartz build
+        run: node ./quartz/bootstrap-cli.mjs build
 
+      # 4) Upload build artifact for Pages
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v3
         with:
