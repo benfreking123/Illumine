@@ -1,8 +1,8 @@
-name: Build & Deploy Quartz (copy root -> /content)
+name: Build & Deploy Quartz (root vault -> Quartz/content)
 
 on:
   push:
-    branches: [ main ]         # or [ v4 ] if you prefer
+    branches: [ main ]    # change to [ v4 ] if you push to v4
 
 permissions:
   contents: read
@@ -22,17 +22,26 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node (v22) and pnpm
+      - name: Setup Node (v22) + pnpm
         uses: actions/setup-node@v4
         with:
           node-version: 22
+
       - name: Enable corepack (pnpm)
         run: corepack enable
 
-      # 1) Copy your ROOT vault into /content on the runner
-      - name: Prepare /content from repo root
+      # 1) Clone Quartz source
+      - name: Clone Quartz
+        run: git clone --depth=1 https://github.com/jackyzha0/quartz.git qsrc
+
+      # 2) Install Quartz dependencies (pnpm workspace)
+      - name: Install Quartz deps
+        run: pnpm install --no-frozen-lockfile --dir qsrc
+
+      # 3) Copy YOUR vault (repo root) into qsrc/content for the build
+      - name: Copy root vault -> qsrc/content
         run: |
-          mkdir -p content
+          mkdir -p qsrc/content
           rsync -a \
             --include='*/' \
             --include='*.md' --include='*.markdown' \
@@ -43,48 +52,38 @@ jobs:
             --exclude='.github/**' \
             --exclude='node_modules/**' \
             --exclude='public/**' \
-            --exclude='quartz/**' \
-            --exclude='content/**' \
+            --exclude='qsrc/**' \
             --exclude='README.md' \
-            ./ ./content/
-      - name: Show a few files in /content (debug)
+            ./ qsrc/content/
+
+      - name: Show a few files in qsrc/content (debug)
         run: |
-          echo "Top of /content:"
-          find content -maxdepth 2 -type f | head -n 30
+          echo "Top of qsrc/content:"
+          find qsrc/content -maxdepth 2 -type f | head -n 30
 
-      # 2) Fetch Quartz source into a TEMP folder, then use its CLI to CREATE a project in CWD
-      #    (We do NOT keep / commit any of these generated files.)
-      - name: Clone Quartz source (temp)
-        run: git clone --depth=1 https://github.com/jackyzha0/quartz.git qsrc
+      # 4) Provide your quartz.config.ts to the Quartz build dir
+      - name: Inject site config
+        run: |
+          if [ -f quartz.config.ts ]; then
+            cp quartz.config.ts qsrc/quartz.config.ts
+          else
+            echo '⚠️ quartz.config.ts not found at repo root; using Quartz defaults'
+          fi
 
-      - name: Install CLI runtime for the source (pnpm in temp)
-        run: pnpm install --no-frozen-lockfile --dir qsrc
+      # 5) Build the site INSIDE the Quartz repo so package.json is present
+      - name: Build with Quartz CLI (correct CWD)
+        working-directory: qsrc
+        run: node quartz/bootstrap-cli.mjs build
 
-      # This generates package.json + local /quartz project folder in the current directory (your repo working dir)
-      - name: Scaffold a Quartz project in this repo (runtime only)
-        run: node qsrc/quartz/bootstrap-cli.mjs create --no-prompt
-
-      # 3) Install the generated project's dependencies (in your repo root)
-      - name: Install generated project dependencies
-        run: pnpm install --no-frozen-lockfile
-
-      # 4) Build with the project's CLI (now available via pnpm)
-      - name: Build site with Quartz CLI
-        run: pnpm exec quartz build
-
-      # 5) Upload build artifact for Pages
-      - name: Upload artifact for Pages
+      # 6) Upload artifact for GitHub Pages (build outputs to qsrc/public)
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: qsrc/public
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      url: ${{
