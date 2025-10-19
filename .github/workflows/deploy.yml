@@ -1,8 +1,8 @@
-name: Build & Deploy Quartz (root vault copied to /content)
+name: Build & Deploy Quartz (copy root -> /content)
 
 on:
   push:
-    branches: [ main ]   # <-- change to [ v4 ] if you prefer that branch
+    branches: [ main ]          # change to [ v4 ] if you push to v4
 
 permissions:
   contents: read
@@ -17,12 +17,12 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up Node
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -46,19 +46,21 @@ jobs:
             --exclude='README.md' \
             ./ ./content/
 
-      - name: Show a few files in /content
-        run: |
-          echo "Top of /content:"
-          find content -maxdepth 2 -type f | head -n 30
+      - name: Show a few files in /content (debug)
+        run: find content -maxdepth 2 -type f | head -n 30
 
-      # --- Install & Build Quartz ---
-      - name: Install Quartz CLI
-        run: npm i -g @jackyzha0/quartz
+      # --- Fetch Quartz (from GitHub), install its deps, and expose its CLI ---
+      - name: Clone Quartz
+        run: git clone --depth=1 https://github.com/jackyzha0/quartz.git quartz
 
+      - name: Install Quartz dependencies
+        run: npm ci --prefix quartz
+
+      # The Quartz CLI is now at ./quartz/node_modules/.bin/quartz
       - name: Build site
-        run: npx quartz build
+        run: ./quartz/node_modules/.bin/quartz build
 
-      - name: Upload artifact
+      - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: public
