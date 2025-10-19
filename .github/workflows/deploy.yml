@@ -76,10 +76,9 @@ jobs:
           head -n 30 qsrc/quartz.config.ts
 
       # 5) Build the site INSIDE the Quartz repo (now has package.json + config)
-      - name: Build with Quartz CLI
+      - name: Build with Quartz CLI (correct CWD)
         working-directory: qsrc
         run: node quartz/bootstrap-cli.mjs build
-
       # 6) Upload artifact for GitHub Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
