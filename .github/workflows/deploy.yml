@@ -1,4 +1,4 @@
-name: Build & Deploy Quartz (root vault -> Quartz/content, explicit JS config)
+name: Build & Deploy Quartz (root vault -> Quartz/content, single ESM config)
 
 on:
   push:
@@ -16,15 +16,14 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-22.04
-
     steps:
-      # --- Checkout your repo (your Obsidian vault lives at repo root) ---
+      # 1) Checkout your repo (vault at repo root)
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # --- Node + pnpm (via corepack) ---
+      # 2) Node + pnpm (via corepack)
       - name: Setup Node (v22)
         uses: actions/setup-node@v4
         with:
@@ -33,14 +32,14 @@ jobs:
       - name: Enable corepack (pnpm)
         run: corepack enable
 
-      # --- Clone Quartz source into qsrc/ and install its workspace deps ---
+      # 3) Clone Quartz and install its deps
       - name: Clone Quartz
         run: git clone --depth=1 https://github.com/jackyzha0/quartz.git qsrc
 
       - name: Install Quartz deps (pnpm workspace)
         run: pnpm install --no-frozen-lockfile --dir qsrc
 
-      # --- Copy your vault (repo root) into qsrc/content/ for the build ---
+      # 4) Copy your vault (repo root) into qsrc/content
       - name: Copy root vault -> qsrc/content
         run: |
           mkdir -p qsrc/content
@@ -60,22 +59,18 @@ jobs:
           echo "Sample files:"
           find qsrc/content -maxdepth 2 -type f | head -n 20
 
-      # --- Make sure no config is hiding in content/ (it would shadow the real one) ---
-      - name: Remove stray config from content (important)
+      # 5) Remove any config inside content (would shadow the real one)
+      - name: Remove stray configs from content
         run: |
           rm -f qsrc/content/quartz.config.ts qsrc/content/quartz.config.js qsrc/content/quartz.config.mjs || true
 
-      # --- Install a guaranteed ESM config next to Quartz and (optionally) copy your TS one for reference ---
-      - name: Install build-time config (explicit JS/ESM)
-        env:
-          PAGES_URL: https://benfreking123.github.io/Illumine/
+      # 6) Install the ONLY config Quartz should see (ESM, next to quartz/)
+      - name: Install build-time config (ESM only)
         run: |
-          # Keep your TS config alongside for reference (not used by the build)
-          if [ -f quartz.config.ts ]; then
-            cp quartz.config.ts qsrc/quartz.config.ts
-          fi
+          # Ensure no competing config exists next to Quartz
+          rm -f qsrc/quartz.config.ts qsrc/quartz.config.js || true
 
-          # Create the runtime config Quartz will 100% load
+          # Create the runtime config Quartz will load
           cat > qsrc/quartz.config.mjs <<'EOF'
           export default {
             site: {
@@ -95,19 +90,19 @@ jobs:
           };
           EOF
 
-          # Ensure static/custom.css exists so the include doesn't 404 (optional)
+          # Make sure the referenced css exists (optional)
           mkdir -p qsrc/static
           [ -f qsrc/static/custom.css ] || echo "/* custom styles */" > qsrc/static/custom.css
 
-          echo "Final config (qsrc/quartz.config.mjs):"
-          head -n 40 qsrc/quartz.config.mjs
+          echo "Configs Quartz might see (should list ONLY qsrc/quartz.config.mjs):"
+          find qsrc -maxdepth 2 -name "quartz.config.*" -type f -printf "%p\n"
 
-      # --- Build inside qsrc/ so package.json is present; point Quartz at our config explicitly ---
-      - name: Build with Quartz CLI (explicit config)
+      # 7) Build from inside qsrc (no flags; Quartz will auto-pick the ESM config)
+      - name: Build with Quartz CLI
         working-directory: qsrc
-        run: node quartz/bootstrap-cli.mjs build --config ./quartz.config.mjs
+        run: node quartz/bootstrap-cli.mjs build
 
-      # --- Upload build output (qsrc/public) for GitHub Pages ---
+      # 8) Upload the artifact for Pages
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v3
         with:
@@ -119,7 +114,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
