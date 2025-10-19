@@ -1,8 +1,8 @@
 name: Build & Deploy Quartz
 
-on:
+"on":
   push:
-    branches: [ main ]
+    branches: [main]
 
 permissions:
   contents: read
@@ -22,12 +22,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Node
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: Corepack
+      - name: Enable Corepack
         run: corepack enable
 
       - name: Clone Quartz
@@ -64,16 +64,8 @@ jobs:
             cp quartz.config.ts qsrc/quartz.config.ts
           else
             printf "%s" "export default {
-  site: {
-    title: \"Illumine\",
-    description: \"Spiritual wiki\",
-    baseUrl: \"https://benfreking123.github.io/Illumine/\"
-  },
-  build: {
-    outputDir: \"public\",
-    ignorePatterns: [],
-    assetsDir: \"static\"
-  },
+  site: { title: \"Illumine\", description: \"Spiritual wiki\", baseUrl: \"https://benfreking123.github.io/Illumine/\" },
+  build: { outputDir: \"public\", ignorePatterns: [], assetsDir: \"static\" },
   theme: { css: [\"./static/custom.css\"] },
   plugins: {}
 }
