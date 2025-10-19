@@ -1,8 +1,8 @@
-name: Build & Deploy Quartz (root vault -> Quartz/content, single ESM config)
+name: Build & Deploy Quartz (root vault -> Quartz/content, TS config)
 
 on:
   push:
-    branches: [ main ]            # change if you push to another branch
+    branches: [ main ]            # adjust if you use a different branch
 
 permissions:
   contents: read
@@ -16,8 +16,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-22.04
+
     steps:
-      # 1) Checkout your repo (vault at repo root)
+      # 1) Checkout your repo (your Obsidian vault is at repo root)
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
@@ -28,7 +29,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
       - name: Enable corepack (pnpm)
         run: corepack enable
 
@@ -59,19 +59,19 @@ jobs:
           echo "Sample files:"
           find qsrc/content -maxdepth 2 -type f | head -n 20
 
-      # 5) Remove any config inside content (would shadow the real one)
+      # 5) Make sure no config exists inside content (it would shadow the real one)
       - name: Remove stray configs from content
         run: |
           rm -f qsrc/content/quartz.config.ts qsrc/content/quartz.config.js qsrc/content/quartz.config.mjs || true
 
-      # 6) Install the ONLY config Quartz should see (ESM, next to quartz/)
-      - name: Install build-time config (ESM only)
+      # 6) Install the ONLY config Quartz should load: qsrc/quartz.config.ts
+      - name: Install build-time config (TypeScript)
         run: |
-          # Ensure no competing config exists next to Quartz
-          rm -f qsrc/quartz.config.ts qsrc/quartz.config.js || true
+          # Ensure no competing configs next to Quartz
+          rm -f qsrc/quartz.config.js qsrc/quartz.config.mjs || true
 
-          # Create the runtime config Quartz will load
-          cat > qsrc/quartz.config.mjs <<'EOF'
+          # Write the TypeScript config Quartz resolves by default
+          cat > qsrc/quartz.config.ts <<'EOF'
           export default {
             site: {
               title: "Illumine",
@@ -87,22 +87,22 @@ jobs:
               css: ["./static/custom.css"],
             },
             plugins: {},
-          };
+          }
           EOF
 
-          # Make sure the referenced css exists (optional)
+          # Make sure the referenced CSS exists
           mkdir -p qsrc/static
           [ -f qsrc/static/custom.css ] || echo "/* custom styles */" > qsrc/static/custom.css
 
-          echo "Configs Quartz might see (should list ONLY qsrc/quartz.config.mjs):"
+          echo "Configs Quartz might see (should be ONLY qsrc/quartz.config.ts):"
           find qsrc -maxdepth 2 -name "quartz.config.*" -type f -printf "%p\n"
 
-      # 7) Build from inside qsrc (no flags; Quartz will auto-pick the ESM config)
+      # 7) Build from inside qsrc (Quartz auto-loads ../quartz.config.ts)
       - name: Build with Quartz CLI
         working-directory: qsrc
         run: node quartz/bootstrap-cli.mjs build
 
-      # 8) Upload the artifact for Pages
+      # 8) Upload artifact for GitHub Pages
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v3
         with:
