@@ -1,4 +1,4 @@
-name: Build & Deploy Quartz (root vault → qsrc/content)
+name: Build & Deploy Quartz
 
 on:
   push:
@@ -10,34 +10,37 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-22.04
-
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Node (v22)
+      - name: Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: Enable corepack (pnpm)
+      - name: Corepack
         run: corepack enable
 
-      - name: Clone Quartz (pin release for stability)
+      - name: Clone Quartz
         run: git clone --depth=1 --branch v4.5.2 https://github.com/jackyzha0/quartz.git qsrc
 
-      - name: Install Quartz deps
+      - name: Install deps
         run: pnpm install --no-frozen-lockfile --dir qsrc
 
-      - name: Copy root vault → qsrc/content
+      - name: Approve build scripts
+        working-directory: qsrc
+        run: pnpm approve-builds || true
+
+      - name: Copy vault
         run: |
           mkdir -p qsrc/content
           rsync -a \
@@ -53,47 +56,37 @@ jobs:
             --exclude='qsrc/**' \
             --exclude='README.md' \
             ./ qsrc/content/
-          echo "Sample files:" && find qsrc/content -maxdepth 2 -type f | head -n 20
+          rm -f qsrc/content/quartz.config.ts qsrc/content/quartz.config.js qsrc/content/quartz.config.mjs
 
-      - name: Remove any config that slipped into content (important)
-        run: rm -f qsrc/content/quartz.config.* || true
-
-      - name: Provide quartz.config.ts beside the CLI
+      - name: Provide config
         run: |
-          # Prefer a config you keep at the repo root.
           if [ -f quartz.config.ts ]; then
             cp quartz.config.ts qsrc/quartz.config.ts
           else
-            # Write a safe default without using heredocs (avoids YAML/Bash EOF issues)
-            mkdir -p qsrc
-            printf '%s\n' \
-'export default {' \
-'  site: {' \
-'    title: "Illumine",' \
-'    description: "Spiritual wiki",' \
-'    baseUrl: "https://benfreking123.github.io/Illumine/",' \
-'  },' \
-'  build: {' \
-'    outputDir: "public",' \
-'    ignorePatterns: ['"'"'**/.obsidian/**'"'"','"'"'**/qsrc/**'"'"'],' \
-'    assetsDir: "static",' \
-'  },' \
-'  theme: {' \
-'    css: ["./static/custom.css"],' \
-'  },' \
-'  plugins: {},' \
-'}' > qsrc/quartz.config.ts
+            printf "%s" "export default {
+  site: {
+    title: \"Illumine\",
+    description: \"Spiritual wiki\",
+    baseUrl: \"https://benfreking123.github.io/Illumine/\"
+  },
+  build: {
+    outputDir: \"public\",
+    ignorePatterns: [],
+    assetsDir: \"static\"
+  },
+  theme: { css: [\"./static/custom.css\"] },
+  plugins: {}
+}
+" > qsrc/quartz.config.ts
           fi
           mkdir -p qsrc/static
-          [ -f qsrc/static/custom.css ] || printf '%s\n' '/* custom styles */' > qsrc/static/custom.css
-          echo "Using config:"
-          head -n 50 qsrc/quartz.config.ts
+          [ -f qsrc/static/custom.css ] || printf "/* custom styles */" > qsrc/static/custom.css
 
-      - name: Build with Quartz CLI (run inside qsrc/, no --config flag)
+      - name: Build
         working-directory: qsrc
         run: node quartz/bootstrap-cli.mjs build
 
-      - name: Upload artifact for Pages
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: qsrc/public
@@ -104,8 +97,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4
