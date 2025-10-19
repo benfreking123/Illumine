@@ -2,7 +2,7 @@ name: Build & Deploy Quartz (copy root -> /content)
 
 on:
   push:
-    branches: [ main ]      # change to [ v4 ] if that's your branch
+    branches: [ main ]         # or [ v4 ] if you prefer
 
 permissions:
   contents: read
@@ -52,32 +52,27 @@ jobs:
           echo "Top of /content:"
           find content -maxdepth 2 -type f | head -n 30
 
-      # 2) Clone Quartz and install deps (pnpm workspace)
-      - name: Clone Quartz
-        run: git clone --depth=1 https://github.com/jackyzha0/quartz.git quartz
+      # 2) Fetch Quartz source into a TEMP folder, then use its CLI to CREATE a project in CWD
+      #    (We do NOT keep / commit any of these generated files.)
+      - name: Clone Quartz source (temp)
+        run: git clone --depth=1 https://github.com/jackyzha0/quartz.git qsrc
 
-      - name: Install Quartz dependencies (pnpm workspace)
-        run: pnpm install --no-frozen-lockfile --dir quartz
+      - name: Install CLI runtime for the source (pnpm in temp)
+        run: pnpm install --no-frozen-lockfile --dir qsrc
 
-      # 3) Locate CLI entry (bootstrap-cli.mjs) robustly and run it
-      - name: Locate Quartz CLI
-        id: locate_cli
-        run: |
-          set -e
-          BOOTSTRAP_PATH=$(cd quartz && git ls-files | grep -E 'bootstrap-cli\.mjs$' | head -n1 || true)
-          if [ -z "$BOOTSTRAP_PATH" ]; then
-            echo "Could not find bootstrap-cli.mjs inside the Quartz repo"
-            echo "Listing repo tree for debugging:"
-            (cd quartz && ls -la)
-            exit 1
-          fi
-          echo "CLI entry found at: quartz/$BOOTSTRAP_PATH"
-          echo "cli=quartz/$BOOTSTRAP_PATH" >> $GITHUB_OUTPUT
+      # This generates package.json + local /quartz project folder in the current directory (your repo working dir)
+      - name: Scaffold a Quartz project in this repo (runtime only)
+        run: node qsrc/quartz/bootstrap-cli.mjs create --no-prompt
 
+      # 3) Install the generated project's dependencies (in your repo root)
+      - name: Install generated project dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      # 4) Build with the project's CLI (now available via pnpm)
       - name: Build site with Quartz CLI
-        run: node "${{ steps.locate_cli.outputs.cli }}" build
+        run: pnpm exec quartz build
 
-      # 4) Upload build artifact for Pages
+      # 5) Upload build artifact for Pages
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v3
         with:
