@@ -56,7 +56,7 @@ jobs:
         run: git clone --depth=1 https://github.com/jackyzha0/quartz.git quartz
 
       - name: Install Quartz dependencies (pnpm workspace)
-        run: pnpm install --frozen-lockfile --dir quartz
+        run: pnpm install --no-frozen-lockfile --dir quartz
 
       # The CLI is exposed via pnpm; run it from the Quartz workspace
       - name: Build site with Quartz CLI
