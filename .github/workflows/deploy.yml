@@ -2,7 +2,7 @@ name: Build & Deploy Quartz (copy root -> /content)
 
 on:
   push:
-    branches: [ main ]          # change to [ v4 ] if you push to v4
+    branches: [ main ]      # or [ v4 ] if you prefer
 
 permissions:
   contents: read
@@ -22,10 +22,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node
+      - name: Setup Node (v22) and pnpm
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Enable corepack (pnpm)
+        run: corepack enable
 
       # --- Copy your root vault into /content for Quartz ---
       - name: Prepare /content from repo root
@@ -49,16 +51,16 @@ jobs:
       - name: Show a few files in /content (debug)
         run: find content -maxdepth 2 -type f | head -n 30
 
-      # --- Fetch Quartz (from GitHub), install its deps, and expose its CLI ---
+      # --- Fetch Quartz (monorepo) and install with pnpm ---
       - name: Clone Quartz
         run: git clone --depth=1 https://github.com/jackyzha0/quartz.git quartz
 
-      - name: Install Quartz dependencies
-        run: npm ci --prefix quartz
+      - name: Install Quartz dependencies (pnpm workspace)
+        run: pnpm install --frozen-lockfile --dir quartz
 
-      # The Quartz CLI is now at ./quartz/node_modules/.bin/quartz
-      - name: Build site
-        run: ./quartz/node_modules/.bin/quartz build
+      # The CLI is exposed via pnpm; run it from the Quartz workspace
+      - name: Build site with Quartz CLI
+        run: pnpm --dir quartz exec quartz build
 
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v3
