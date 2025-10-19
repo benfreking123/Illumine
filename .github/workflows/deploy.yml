@@ -2,7 +2,7 @@ name: Build & Deploy Quartz (root vault -> Quartz/content)
 
 on:
   push:
-    branches: [ main ]    # change to [ v4 ] if you push to v4
+    branches: [ main ]    # or [ v4 ] if you push to v4
 
 permissions:
   contents: read
@@ -26,7 +26,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
       - name: Enable corepack (pnpm)
         run: corepack enable
 
@@ -38,7 +37,7 @@ jobs:
       - name: Install Quartz deps
         run: pnpm install --no-frozen-lockfile --dir qsrc
 
-      # 3) Copy YOUR vault (repo root) into qsrc/content for the build
+      # 3) Copy YOUR vault (repo root) -> qsrc/content
       - name: Copy root vault -> qsrc/content
         run: |
           mkdir -p qsrc/content
@@ -55,27 +54,33 @@ jobs:
             --exclude='qsrc/**' \
             --exclude='README.md' \
             ./ qsrc/content/
+          echo "✅ Copied vault into qsrc/content"
+          echo "Sample content files:"
+          find qsrc/content -maxdepth 2 -type f | head -n 20
 
-      - name: Show a few files in qsrc/content (debug)
+      # 4) Copy your config into the *correct* Quartz root dir
+      - name: Inject correct site config
         run: |
-          echo "Top of qsrc/content:"
-          find qsrc/content -maxdepth 2 -type f | head -n 30
-
-      # 4) Provide your quartz.config.ts to the Quartz build dir
-      - name: Inject site config
-        run: |
+          echo "🧩 Cleaning old misplaced configs..."
+          rm -f qsrc/content/quartz.config.ts || true
+          echo "Copying quartz.config.ts → qsrc/quartz.config.ts"
           if [ -f quartz.config.ts ]; then
             cp quartz.config.ts qsrc/quartz.config.ts
           else
-            echo '⚠️ quartz.config.ts not found at repo root; using Quartz defaults'
+            echo "❌ quartz.config.ts missing at repo root!"
+            exit 1
           fi
+          echo "✅ Final config location and content:"
+          ls -la qsrc | grep quartz.config.ts
+          echo "----"
+          head -n 30 qsrc/quartz.config.ts
 
-      # 5) Build the site INSIDE the Quartz repo so package.json is present
-      - name: Build with Quartz CLI (correct CWD)
+      # 5) Build the site INSIDE the Quartz repo (now has package.json + config)
+      - name: Build with Quartz CLI
         working-directory: qsrc
         run: node quartz/bootstrap-cli.mjs build
 
-      # 6) Upload artifact for GitHub Pages (build outputs to qsrc/public)
+      # 6) Upload artifact for GitHub Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
