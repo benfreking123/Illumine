@@ -2,7 +2,7 @@ name: Build & Deploy Quartz (copy root -> /content)
 
 on:
   push:
-    branches: [ main ]        # or [ v4 ] if you prefer
+    branches: [ main ]      # change to [ v4 ] if that's your branch
 
 permissions:
   contents: read
@@ -59,10 +59,23 @@ jobs:
       - name: Install Quartz dependencies (pnpm workspace)
         run: pnpm install --no-frozen-lockfile --dir quartz
 
-      # 3) Build via Quartz CLI entrypoint (bin -> ./quartz/bootstrap-cli.mjs)
-      #    We call it directly instead of npx so we don't depend on a package name.
+      # 3) Locate CLI entry (bootstrap-cli.mjs) robustly and run it
+      - name: Locate Quartz CLI
+        id: locate_cli
+        run: |
+          set -e
+          BOOTSTRAP_PATH=$(cd quartz && git ls-files | grep -E 'bootstrap-cli\.mjs$' | head -n1 || true)
+          if [ -z "$BOOTSTRAP_PATH" ]; then
+            echo "Could not find bootstrap-cli.mjs inside the Quartz repo"
+            echo "Listing repo tree for debugging:"
+            (cd quartz && ls -la)
+            exit 1
+          fi
+          echo "CLI entry found at: quartz/$BOOTSTRAP_PATH"
+          echo "cli=quartz/$BOOTSTRAP_PATH" >> $GITHUB_OUTPUT
+
       - name: Build site with Quartz CLI
-        run: node ./quartz/bootstrap-cli.mjs build
+        run: node "${{ steps.locate_cli.outputs.cli }}" build
 
       # 4) Upload build artifact for Pages
       - name: Upload artifact for Pages
