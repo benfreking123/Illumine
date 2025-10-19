@@ -1,0 +1,75 @@
+name: Build & Deploy Quartz (root vault copied to /content)
+
+on:
+  push:
+    branches: [ main ]   # <-- change to [ v4 ] if you prefer that branch
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # --- Copy your root vault into /content for Quartz ---
+      - name: Prepare /content from repo root
+        run: |
+          mkdir -p content
+          rsync -a \
+            --include='*/' \
+            --include='*.md' --include='*.markdown' \
+            --include='*.png' --include='*.jpg' --include='*.jpeg' \
+            --include='*.gif' --include='*.svg' --include='*.webp' \
+            --include='*.pdf' \
+            --exclude='.git/**' \
+            --exclude='.github/**' \
+            --exclude='node_modules/**' \
+            --exclude='public/**' \
+            --exclude='quartz/**' \
+            --exclude='content/**' \
+            --exclude='README.md' \
+            ./ ./content/
+
+      - name: Show a few files in /content
+        run: |
+          echo "Top of /content:"
+          find content -maxdepth 2 -type f | head -n 30
+
+      # --- Install & Build Quartz ---
+      - name: Install Quartz CLI
+        run: npm i -g @jackyzha0/quartz
+
+      - name: Build site
+        run: npx quartz build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
