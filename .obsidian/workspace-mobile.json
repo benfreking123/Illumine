@@ -463,12 +463,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Practice/Daily Notes/2025-10-19.md",
+                "file": "Practice/Ideas.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-10-19"
+              "title": "Ideas"
             }
           }
         ],
@@ -591,7 +591,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "",
+            "query": "Lucid dreaming",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": true,
@@ -609,7 +609,9 @@
           "type": "tag",
           "state": {
             "sortOrder": "frequency",
-            "useHierarchy": true
+            "useHierarchy": true,
+            "showSearch": false,
+            "searchQuery": ""
           },
           "icon": "lucide-tags",
           "title": "Tags"
@@ -705,41 +707,41 @@
   },
   "active": "c81e836307e1f789",
   "lastOpenFiles": [
-    "Pages/Beliefs/B-0005.md",
-    "Pages/Beliefs/B-0004.md",
-    "Pages/Beliefs/B-0003.md",
-    "Pages/Beliefs/B-0001.md",
-    "Pages/Beliefs/B-0002.md",
-    "Pages/Beliefs",
-    "Practice/Daily Notes/2025-10-18.md",
-    "Practice/Daily Notes/2025-10-19.md",
+    "Affordances/Projection/Projection Techniques/WBTB.md",
+    "Affordances/Projection/Projection Techniques/WBTB.md",
+    "Affordances/Projection/Projection Techniques/Floating Technique.md",
+    "Affordances/Projection/Projection Techniques/Swimming Technique.md",
+    "Practice/Ideas.md",
+    "Affordances/Projection/Lucid Dreaming.md",
+    "Affordances/Projection/Projection Techniques",
+    "Aspects/Objects/Anchor/Anchor.md",
+    "Practice/Schools/Projection Lesson.md",
+    "Practice/Schools/Divination Lesson.md",
+    "Practice/Schools/Conjugation Lesson.md",
+    "Unorganized/Solar Body.md",
     "Untitled.md",
+    "Practice/Schools/Identification Lesson.md",
+    "Aspects/Objects/Repository/Grimoire.md",
+    "Aspects/Objects/Repository/Repository.md",
+    "Aspects/Constructs/Servitor/Servitor.md",
+    "Aspects/Constructs/Servitor/Mulken.md",
+    "Aspects/Constructs/Construct.md",
+    "Nen.md",
+    "Practice/Pathway.md",
+    "Affordances/Conjuration/Conjuration.md",
+    "Practice/Daily Notes/Daily Note Template.md",
+    "Practice/Lesson Plan.md",
+    "Affordances/Projection/Astral Projection.md",
+    "Affordances/Introspection/Introspection.md",
+    "Aspects/Constructs/Memetics/Basilisk.md",
+    "Practice/Schools",
+    "Pages/Beliefs",
     "content",
     "quartz",
-    "index.md",
     "quartz.config.ts",
-    "Test.md",
-    "Aspects/Entities/Embodiments/Embodiment.md",
-    "Unorganized/Kenith & Zarda.md",
-    "Practice/Ideas.md",
-    "Unorganized/Energy.md",
-    "Pages/Essasys/Three New Essasy.md",
-    "Practice/Lesson Plan.md",
-    "Practice/Daily Notes/2025-10-17.md",
-    "Practice/Pathway.md",
-    "Affordances/Manipulation/Manipulation.md",
-    "Affordances/Manipulation/Domain.md",
-    "Aspects/Objects/Talisman/Mana Stone.md",
-    "Practice/Daily Notes/Daily Note Template.md",
-    "Aspects/Objects/Altars/Mecca Cube.md",
-    "Unorganized/Solar Body.md",
-    "Unorganized/Memory.md",
-    "Unorganized/Lucid Dreaming.md",
     "Aspects/Objects/Identification Tools",
     "Aspects/Objects/Scrying Mirror",
     "Aspects/Objects/Divination Tools",
-    "Unorganized",
-    "Practice/Daily Notes",
-    "Practice"
+    "Unorganized"
   ]
 }

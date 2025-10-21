@@ -8,6 +8,10 @@ Schools have ranks 9-0 corresponding tho the tier of progression you are in. To 
 
 You CANNOT complete task that are beyond your current tier
 
+Each school and base (mediation and nen)
+Each Schools lesson plan will have tiers, an in each tier:
+- Daily Tasks for the specific School (the basic Dailies will be for the foundation or base lesson)
+
 ## Nen & The Spark
 Gaining the Spark enables the use of Nen
 The Spark enables the use of Nen

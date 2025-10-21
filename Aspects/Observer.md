@@ -4,6 +4,7 @@ tags:
 aliases:
   - Individual
   - Self
+  - Personality
 Document State: Draft
 ---
 Me

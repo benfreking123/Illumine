@@ -27,22 +27,24 @@ Threshold Goal: 2
 
 ## Activities
 #### List
-- [ ] [[Pathway#Morning Day Night Prayer|Triple Prayer ]] (+1)
-	- [ ] Morning (+0.25)
-	- [ ] Day (+0.25)
-	- [ ] Night (+0.25)
-- [ ] [[Pathway#Meditation|Meditation]] Stationary (+1/15m)
-- [ ] [[Pathway#Meditation|Meditation]] Active (+1/30m)
-- [ ] [[Pathway#Nen Practices|Nen Practices]] (+1/10m)
-- [ ] [[Pathway#Reading|Reading]] (+1/30m)
-- [ ] [[Pathway#Categorize an Obsidian Note|Categorize/Complete a Note]] (+0.25)
-- [ ] [[Pathway#Write an Essay|Write an Essay]] (+3)
-- [ ] [[Pathway#Research|Research]] (+1/topic)
-- [ ] [[Pathway#Describe a new avoidance aspect or focus|New Description]] (+0.25)
-- [ ] [[Pathway#Create an Item|Create an Item]] (+3)
-- [ ] [[Pathway#Create a new affordance|Create an Affordance]] (+3)
-- [ ] [[Pathway#Visit and document a new focus|Visit a New Focus & Document]] (+3)
-- [ ] [[Pathway#Divination Tools|Divination Tools]] (+1)
+- [ ] [[Pathway#Morning Day Night Prayer|Triple Prayer ]] (+1) - 0
+	- [ ] Morning (+0.25) - 0
+	- [ ] Day (+0.25) - 0
+	- [ ] Night (+0.25) - 0
+- [ ] [[Pathway#Meditation|Meditation]] Stationary (+1/10m) - 0
+- [ ] [[Pathway#Meditation|Meditation]] Active (+1/20m) - 0
+- [ ] [[Pathway#Nen Practices|Nen Practices]] (+1/10m) - 0
+- [ ] [[Pathway#Reading|Reading]] (+1/30m) - 0
+- [ ] [[Pathway#Categorize an Obsidian Note|Categorize/Complete a Note]] (+0.25) - 0
+- [ ] [[Pathway#Write an Essay|Write an Essay]] (+3) - 0
+- [ ] [[Pathway#Research|Research]] (+1/topic) - 0
+- [ ] [[Pathway#Describe a new avoidance aspect or focus|New Description]] (+0.25) - 0
+- [ ] [[Pathway#Create an Item|Create an Item]] (+3) - 0
+- [ ] [[Pathway#Create a new affordance|Create an Affordance]] (+3) - 0
+- [ ] [[Pathway#Visit and document a new focus|Visit a New Focus & Document]] (+3) - 0
+- [ ] [[Pathway#Divination Tools|Divination Tools]] (+1) - 0
+- [ ] Warding
+- [ ] Cleansing
 
 
 #### Morning Day Night Prayer
