@@ -463,12 +463,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Practice/Ideas.md",
+                "file": "Practice/Schools/Divination Lesson.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ideas"
+              "title": "Divination Lesson"
             }
           }
         ],
@@ -707,11 +707,12 @@
   },
   "active": "c81e836307e1f789",
   "lastOpenFiles": [
+    "Practice/Pathway.md",
+    "Practice/Ideas.md",
     "Affordances/Projection/Projection Techniques/WBTB.md",
     "Affordances/Projection/Projection Techniques/WBTB.md",
     "Affordances/Projection/Projection Techniques/Floating Technique.md",
     "Affordances/Projection/Projection Techniques/Swimming Technique.md",
-    "Practice/Ideas.md",
     "Affordances/Projection/Lucid Dreaming.md",
     "Affordances/Projection/Projection Techniques",
     "Aspects/Objects/Anchor/Anchor.md",
@@ -727,7 +728,6 @@
     "Aspects/Constructs/Servitor/Mulken.md",
     "Aspects/Constructs/Construct.md",
     "Nen.md",
-    "Practice/Pathway.md",
     "Affordances/Conjuration/Conjuration.md",
     "Practice/Daily Notes/Daily Note Template.md",
     "Practice/Lesson Plan.md",
