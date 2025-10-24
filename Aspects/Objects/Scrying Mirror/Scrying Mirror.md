@@ -1,6 +1,7 @@
 ---
 tags:
   - Category
+  - Vocab
 aliases:
 Rarity:
 Focus Level:

@@ -6,17 +6,50 @@ New App
 Create Tier 1 of Seven school 1/7
 Refine Information
 Introduction Articles
+- Home Page
+- Disclaimer
+- lesson pages (Base, Divination, Projection, Indetification)
+	- Intros
+	- Tier 1
 Code App
 Social media presence
 Launch
+
+Other mid
+---
+Breath work meditation - projection and base, maybe a tool for introspection
+Chakras or aura centers
+Crystals?
+
+[[Egregores]] (Macro Thoughtforms
+
+
+
+Elements - earth air water fire spirit. Conduits or symbols to help refine and hone affordance?
+Innvocations
+
+Moon phases?
+Afterlife possibilities? Resurrection? 
+
+How a god creates the earth, find the only writings I have somewhere.
+
+The polarities, talk about spectrums, all things exist in the masculine and feminine, order and chaos, law and life
+
+Wicca agrees with my aspects of divinity, remember gnostic Christian backing of the website tho 
 ## Research Ideas
 - what is [[Nen]] aura
 - How to train your nen or aura
 - Google doc “named” had a lot of information
+- Galdar Singing Magick or Manifestation
+- Mudras - Hand gestures, meditative hand gestures you can use to achieve results
 ## Essay Ideas
 What is Prayer
 Styles of Meditation - Cleaning, Grounding, Cleansing, Focusing
 What is The Void - how is it used and relate us to god. Our void is like god in his void, this could the leading reason for creation
+Why does the law of free will reside over other laws
+What is the law of free will
+If you were god how would you create the world
+
 ## Misc
 
 Goods game

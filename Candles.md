@@ -1,0 +1,1 @@
+Like symbols or sigils, maybe an amplifier, doesn’t itself hold value but used as a tool to make the practitioner stronger?

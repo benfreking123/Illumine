@@ -8,6 +8,8 @@ School Description
 ## Activities
 ### Dailies
  - [ ] [[Pathway#Divination Tools|Divination Tools]] (+1)
+ - [ ] Tarot Divination
+ - [ ] Pendulum
 ### Tasks
 - [ ] Use 2x Tarot and Report
 - [ ] Use a 2x Pendulum and Report
@@ -19,3 +21,12 @@ School Description
 - 20 Daily Points in Divination
 - All Tasks
 - All Essays Slots
+
+
+
+Notes
+Akashic Records Req: Projection
+Future Sight
+Future Link
+Trance
+

@@ -1,7 +1,8 @@
 ---
 tags:
   - Vocab
-aliases: 
+  - Category
+aliases:
 Document State: Draft
 ---
 An item that is meant to hold information or constructs

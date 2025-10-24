@@ -2,7 +2,8 @@
 tags:
   - Vocab
   - Identification
-aliases: 
+aliases:
+  - Runes
 Focus Level: Material
 Document State: Draft
 ---
