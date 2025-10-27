@@ -8,10 +8,12 @@ Written Date: 2024-06-17 21:29
 ---
 The [[School]] of gaining information from outside one’s known [[The World|Reality]].
 - - -
-###### Individual Title: Foreseeing
-###### Proficiency: Sear
+# Introduction
+Divination is a powerful tool to add to one’s tool box. It allows individuals to pull knowledge from a multitude of sources. Allowing the partitioner to learn information about themselves, the world around them, or divinity itself.  
+# Essays
+- [[What is Divination]]
 - - -
-## Divination
+# Divination
 #### [[Affordance|Affordances]]
 ```dataview 
 LIST 

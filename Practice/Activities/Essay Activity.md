@@ -1,0 +1,1 @@
+Writing is an essential part of one’s spirituality practice. Solidifying and Codify your beliefs and experience is a powerful way to seeing main themes or holes in your experience or beliefs

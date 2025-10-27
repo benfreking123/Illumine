@@ -7,7 +7,7 @@ aliases:
 Rarity:
 Focus Level:
 Document State:
-Written Date: <% tp.file.creation_date("YYYY-MM-DD") %>
+Written Date: 2025-10-24
 ---
 An [[Material Aspect|Object]] that represents an [[Affordance]]
 - - -

@@ -4,7 +4,7 @@ Servitors can evolve in to autonomous Egregores
 
 The Holy Spirit from Christianity
 
-The Illumine project - used to unify vocab under one structure to allow all members to more deeply connect and express spiritual ideas
+The Illumine project - used to unify vocab under one structure to allow all members to more deeply connect and ex
 
 Lifecycle of an Egregores
 1. Conception: Shared intention or symbol unites minds.

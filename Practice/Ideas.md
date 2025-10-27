@@ -1,4 +1,37 @@
 ## To-Do
+- [[index]]
+- [[Practice Disclaimer]]
+- [[What are Schools]]
+- Schools
+	- Base (W/ Affordance, Focus, and Aspect Essays)
+	- [[Divination]]
+		- [[What is Divination]]
+- Activity List
+	- [[Meditation Activity]]
+		- [[What is Meditation]]
+	- [[Triple Prayer Activity]]
+		- [[What is Prayer]]
+	- [[Research Activity]]
+		- [[How to Research using Illumine]]
+	- [[Reading Activity]]
+	- [[Divination Activity]]
+	- [[Essay Activity]]
+- Maybe
+	- What is the Pathway, Threshold, and system
+	- 
+Reincarnation 
+Death cycle - solar body, judge
+
+Karma - actively day to day divine judgment, what is it, interpersonal corrections
+
+No religion is bad, all practice is in his name, from C. L. Lewis Narnia. We break down practices not sat which one is right or wrong 
+Religion disclaimer
+
+6hr Alzheimer’s song
+
+Breaking a habit activity
+
+
 Merge Nen, [[The Spark]] & [[Presence of God]]
 Vault Website - where finished pages are uploaded, lesson plans, essays, (not notes). Vocab 
 
@@ -36,6 +69,8 @@ How a god creates the earth, find the only writings I have somewhere.
 The polarities, talk about spectrums, all things exist in the masculine and feminine, order and chaos, law and life
 
 Wicca agrees with my aspects of divinity, remember gnostic Christian backing of the website tho 
+
+Location on website or wiki that has all astral projection visiting location, like a specific area like vocab/dictionary for astral locations
 ## Research Ideas
 - what is [[Nen]] aura
 - How to train your nen or aura
