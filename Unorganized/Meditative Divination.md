@@ -1,0 +1,1 @@
+Using meditation and the focusing on one prompt or posed question and listening to the lucid or astral responses the individual receives as information and answer to to given question

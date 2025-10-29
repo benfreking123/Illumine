@@ -606,12 +606,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Egregores.md",
-                "mode": "source",
-                "source": false
+                "file": "Practice/Ideas.md",
+                "mode": "preview",
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "Egregores"
+              "title": "Ideas"
             }
           }
         ],
@@ -848,9 +848,23 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "9e0607e243157264",
+  "active": "2ab388c63b72a43b",
   "lastOpenFiles": [
+    "Pages/Beliefs/B-0001.md",
+    "Pages/Essasys/The Law of.md",
+    "Practice/Ideas.md",
+    "Pages/Essasys/The Framework.md",
+    "Pages/Essasys/What is Meditation.md",
+    "Pages/Journals/J-10001.md",
+    "Pages/Essasys/What is Divination.md",
+    "Practice/Activities/Reading Activity.md",
+    "Practice/Activities/Research Activity.md",
+    "Unorganized/Meditative Divination.md",
+    "Meditative Divination.md",
+    "Practice/Pathway.md",
     "Practice/Activities/Divination Activity.md",
+    "What is Meditation.md",
+    "Egregores.md",
     "Practice/Activities/Triple Prayer Activity.md",
     "Unorganized/Zoroastrianism.md",
     "Unorganized/Word of God.md",
@@ -862,20 +876,6 @@
     "Unorganized/Dieties.md",
     "Unorganized/Candles.md",
     "Pages/Beliefs/B-0008.md",
-    "Practice/Ideas.md",
-    "Practice/Activities/Essay Activity.md",
-    "Unorganized/Solar Body.md",
-    "Zoroastrianism.md",
-    "Pages/Beliefs/B-0002.md",
-    "B-0008.md",
-    "Aspects/Aspect.md",
-    "Word of God.md",
-    "Pages/Beliefs/B-0001.md",
-    "Pages/Beliefs/B-0003.md",
-    "Pages/Beliefs/L-0001.md",
-    "Practice/Activities/Meditation Activity.md",
-    "Untitled.md",
-    "Pages/Beliefs/B-0007.md",
     "Untitled 1.canvas",
     "Practice/Activities",
     "Practice/Disclaimers",

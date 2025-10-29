@@ -54,7 +54,7 @@ Breath work meditation - projection and base, maybe a tool for introspection
 Chakras or aura centers
 Crystals?
 
-[[Egregores]] (Macro Thoughtforms
+[[Egregores 1]] (Macro Thoughtforms
 
 
 

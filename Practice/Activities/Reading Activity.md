@@ -1,0 +1,1 @@
+Active reading and understanding with a quick summary or report of the topic
